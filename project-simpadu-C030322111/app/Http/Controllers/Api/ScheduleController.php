@@ -11,9 +11,11 @@ class ScheduleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return ScheduleResource::collection(Schedule::all()->load('subject')) ;
+        $user = $request->user();
+        $schedules = Schedule::where('id', '=', $user->id)->get();
+        return ScheduleResource::collection($schedules->load('subject'));
     }
 
     /**

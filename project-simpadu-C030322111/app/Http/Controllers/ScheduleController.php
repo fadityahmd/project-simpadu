@@ -41,7 +41,7 @@ class ScheduleController extends Controller
             'deleted_by'=>$request['deleted_by'],
         ]);
 
-        return redirect(route('schedule.index'))->with('Success', 'Data berhasil disimpan');
+        return redirect(route('schedule.index'))->with('success', 'Data berhasil disimpan');
     }
         
     /**
